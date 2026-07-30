@@ -1,341 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webflix</title>
-</head>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StreamVerse</title>
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: serif;
-    }
-
-    body {
-        background: #08081d;
-    }
-
-    .contain {
-        width: 100%;
-        height: 90vh;
-        background: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.575)), url("/Webflix/web.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        color: aliceblue;
-        border-bottom: 3px solid red;
-    }
-
-    nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 100%;
-        padding: 10px;
-
-    }
-
-    .logo {
-        font-size: 40px;
-        color: red;
-    }
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 40px;
-
-    }
-
-    nav li button {
-        width: 80px;
-        height: 30px;
-        font-size: 17px;
-        font-weight: bold;
-        background-color: red;
-        color: white;
-        border-radius: 7px;
-        transition: 0.4s;
-    }
-
-    nav li button:hover {
-        transform: scale(1.2);
-        box-shadow: 5px 5px 10px rgb(192, 44, 44);
-        cursor: pointer;
-    }
-
-    .hero {
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .hero .search {
-        margin: 40px;
-
-    }
-
-    .hero .search input {
-        width: 350px;
-        height: 50px;
-        padding: 10px;
-        font-size: large;
-        margin: 10px;
-        transition: 0.3s;
-    }
-
-    .hero .search input:hover,
-    :focus {
-        outline: none;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgb(240, 0, 0);
-        transform: scale(1.05);
-        letter-spacing: 2px;
-    }
-
-    .hero .search button {
-        width: 150px;
-        height: 50px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        background-color: red;
-        color: white;
-        font-size: larger;
-        font-weight: bold;
-        transition: 0.4s;
-
-    }
-
-    .hero .search button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 10px red;
-    }
-
-    .hero h1 {
-        font-size: 50px;
-    }
-
-    .hero p {
-        font-size: 20px;
-    }
-
-    .Extra {
-        width: 100%;
-        height: 800px;
-        display: flex;
-        padding: 20px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 70px;
-    }
-
-    .feature {
-        gap: 20px;
-        position: relative;
-        width: 100%;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .feature h2 {
-        color: white;
-        position: absolute;
-        bottom: 300px;
-        letter-spacing: 3px;
-        left: 50px;
-        font-size: 30px;
-    }
-
-    .feature .section {
-        width: 100%;
-        border-radius: 40px;
-        overflow: hidden;
-        height: 100%;
-        margin: 10px;
-        transition: 0.4s;
-
-    }
-
-    .feature .section:hover {
-        transform: scale(1.1);
-        box-shadow: 5px 5px 10px rgb(255, 255, 255);
-    }
-
-    .feature img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-
-    .feature2 .section {
-        background-color: #ffffff7a;
-        padding: 20px;
-        background: linear-gradient(rgba(51, 46, 116, 0.74), rgba(83, 29, 29, 0.575));
-        background-position: center;
-        gap: 40px;
-        color: white;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .feature2 .section p {
-        font-size: 15px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
-    footer {
-        width: 100%;
-        display: grid;
-        place-items: center;
-        padding: 20px;
-        background-color: #212953;
-        color: white;
-        letter-spacing: 3px;
-    }
-
-    .end {
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        color: white;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .end p {
-        font-size: 20px;
-        word-spacing: 5px;
-    }
-
-    .end input {
-        transition: 0.3s;
-        width: 400px;
-        height: 60px;
-        border-radius: 10px;
-        padding: 20px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    .end input:hover {
-        transform: translateX(-5px);
-    }
-
-    .end button {
-        width: 200px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 20px;
-        font-weight: bold;
-        height: 60px;
-        border-radius: 10px;
-        color: white;
-        background-color: red;
-        transition: 0.4s;
-
-    }
-
-    .end button:hover{
-        transform: translateX(5px);
-        box-shadow: 2px 2px 10px rgb(255, 255, 255);
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0b1120;color:#fff}
+header{height:100vh;background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('web.jpg') center/cover;display:flex;flex-direction:column}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8%}
+.logo{font-size:2rem;color:#6c63ff;font-weight:bold}
+nav button,.hero button{background:#6c63ff;color:#fff;border:none;padding:12px 20px;border-radius:8px;cursor:pointer}
+.hero{flex:1;display:flex;justify-content:center;align-items:center;text-align:center;flex-direction:column;padding:20px}
+.hero h1{font-size:3rem;margin-bottom:15px}
+.hero p{max-width:650px;opacity:.9;margin-bottom:20px}
+.hero input{padding:14px;width:300px;max-width:90%;border-radius:8px;border:none;margin:10px}
+.section-title{text-align:center;margin:50px 0 20px;color:#6c63ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:0 8% 50px}
+.card{background:#16213e;padding:20px;border-radius:15px;transition:.3s}
+.card:hover{transform:translateY(-8px)}
+footer{text-align:center;padding:25px;background:#111827}
+@media(max-width:768px){
+.hero h1{font-size:2rem}
+nav{padding:15px 5%}
 }
 </style>
-
+</head>
 <body>
-
-    <main>
-        <div class="contain">
-
-            <nav>
-                <h3 class="logo">WEBFLIX</h3>
-                <ul>
-                    <li><button type="submit">Sign In</button></li>
-                    <li><button type="submit">Language</button></li>
-                </ul>
-
-            </nav>
-
-            <div class="hero">
-                <h1>Unlimited Cource, Skills, and more</h1>
-                <p>Starts at ₹149. Cancel at any time.</p>
-
-                <div class="search">
-                    <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                    <input type="email" placeholder="Email Address">
-                    <button>Get Strat ></button>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="Extra">
-
-            <div class="feature">
-                <h2>Tranding</h2>
-                <div class="section">
-                    <img src="/Webflix/new1.jpg" alt="images">
-                </div>
-                <div class="section">
-                    <img src="/Webflix/mouse.jpg" alt="images">
-                </div>
-                <div class="section">
-                    <img src="/Webflix/web.jpg" alt="images">
-                </div>
-                <div class="section">
-                    <img src="/Webflix/Instagram.jpg" alt="images">
-                </div>
-            </div>
-            <div class="feature feature2">
-                <h2>Features</h2>
-                <div class="section">
-                    <h3>Enjoy on your TV</h3>
-                    <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
-                </div>
-                <div class="section">
-                    <h3>Download your shows to watch offline</h3>
-                    <p>Save your favourites easily and always have something to watch.</p>
-                </div>
-                <div class="section">
-                    <h3>Watch everywhere</h3>
-                    <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
-                </div>
-                <div class="section">
-                    <h3>Create profiles for kids</h3>
-                    <p>Send kids on adventures with their favourite characters in a space made just for them — free with
-                        your membership</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="end">
-            <p style="color: white;">Enter Your Email To Enjoy Our Service</p>
-            <div>
-
-                <input type="email" placeholder="Email Address">
-                <button type="submit">Get Strat ></button>
-            </div>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>© 2026 Webflix | All Rights Reserved</p>
-    </footer>
-</body>
-
-</html>
+<header>
+<nav><div class="logo">StreamVerse</div><button>Sign In</button></nav>
+<div class="hero">
+<h1>Unlimited Movies, Shows & Entertainment</h1>
+<p>Watch anywhere. Cancel anytime. Enjoy premium streaming with a modern experience.</p>
+<div><input type="email" placeholder="Enter your email"><button>Get Started</button></div>
+</div>
+</header>
+<h2 class="section-title">Trending</h2>
+<div class="grid">
+<div class="card"><h3>Action</h3><p>High quality blockbuster content.</p></div>
+<div class="card"><h3>Drama</h3><p>Emotional and award-winning stories.</p></div>
+<div class="card"><h3>Sci‑Fi</h3><p>Explore futuristic adventures.</p></div>
+<div class="card"><h3>Comedy</h3><p>Fun shows for everyone.</p></div>
+</div>
+<h2 class="section-title">Why Choose Us?</h2>
+<div class="grid">
+<div class="card"><h3>Ultra HD</h3><p>Crystal clear streaming.</p></div>
+<div class="card"><h3>Fast</h3><p>Optimized loading speed.</p></div>
+<div class="card"><h3>Responsive</h3><p>Works on every device.</p></div>
+<div class="card"><h3>Secure</h3><p>Safe and reliable platform.</p></div>
+</div>
+<footer>© 2026 StreamVerse. All Rights Reserved.</footer>
+</body></html>
